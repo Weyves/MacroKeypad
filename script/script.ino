@@ -1,4 +1,4 @@
-// Version 0.3
+// Version 0.4
 
 #include <Adafruit_NeoPixel.h>
 #include <Keypad.h>
@@ -12,7 +12,6 @@ char keys[ROWS][COLS] = {
   {'5','6','7','8'},
 };
 
-//char profiles[10] = {'0','1','2','3','4','5','6','7','8','9'};
 int selectedProfile;
 
 byte rowPins[ROWS] = {16,10};
@@ -35,10 +34,7 @@ void setup() {
 void loop() {
   char key = keypad.getKey();
   if(key){
-    Serial.println("Key pressed: ");
-    Serial.println(key);
-    Serial.println("Current profile: ");
-    Serial.println(selectedProfile);
+        
     if(key == '8'){
       Serial.println("Changing profile...");
       if (selectedProfile == 9){
@@ -48,6 +44,17 @@ void loop() {
       }
       changeProfile();
     }
+    
+    if(key == '4'){
+      Serial.println("Changing profile...");
+      if (selectedProfile == 0){
+        selectedProfile = 9;
+      } else {
+        selectedProfile = selectedProfile - 1;
+      }
+      changeProfile();
+    }
+    
     switch(selectedProfile){
       case 0:
         profile0(key);
@@ -88,34 +95,36 @@ void loop() {
 }
 
 void changeProfile(){
+  Serial.println("Current profile: ");
+  Serial.println(selectedProfile);
   switch(selectedProfile){
     case 0:
-      //Red//
-      colorWipe(strip.Color(255, 0, 0), 50);
+      //Purple//
+      colorWipe(strip.Color(153, 51, 255), 50);
       break;
     case 1:
-      //Green//
-      colorWipe(strip.Color(0, 255, 0), 50);
+      //Orange//
+      colorWipe(strip.Color(255, 128, 0), 50);
       break;
     case 2:
       //Blue//
       colorWipe(strip.Color(0, 0, 255), 50);
       break;
     case 3:
+      //Green//
+      colorWipe(strip.Color(0, 255, 0), 50);
+      break;
+    case 4:
       //White//
       colorWipe(strip.Color(127, 127, 127), 50);
       break;
-    case 4:
+    case 5:
       //Cyan//
       colorWipe(strip.Color(102, 255, 255), 50);
       break;
-    case 5:
-      //Orange//
-      colorWipe(strip.Color(255, 128, 0), 50);
-      break;
     case 6:
-      //Purple//
-      colorWipe(strip.Color(153, 51, 255), 50);
+      //Red//
+      colorWipe(strip.Color(255, 0, 0), 50);
       break;
     case 7:
       //Pistachio//
@@ -149,8 +158,6 @@ void profile0(char key){
       break;
     case '3':
       break;
-    case '4':
-      break;
     case '5':
       break;
     case '6':
@@ -170,8 +177,6 @@ void profile1(char key){
     case '2':
       break;
     case '3':
-      break;
-    case '4':
       break;
     case '5':
       break;
@@ -193,8 +198,6 @@ void profile2(char key){
       break;
     case '3':
       break;
-    case '4':
-      break;
     case '5':
       break;
     case '6':
@@ -210,18 +213,34 @@ void profile2(char key){
 void profile3(char key){
   switch(key){
     case '1':
+      //Play-Pause
+      Keyboard.write((char) 32);
       break;
     case '2':
+      //Prev song
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ARROW);
       break;
     case '3':
-      break;
-    case '4':
+      //Next song
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_RIGHT_ARROW);
       break;
     case '5':
+      //Volume Down
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_DOWN_ARROW);
       break;
     case '6':
+      //Volume Up
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_UP_ARROW);
       break;
     case '7':
+      //Mute-Unmute
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_SHIFT);
+      Keyboard.press(KEY_DOWN_ARROW);
       break;
     default:
       break;
@@ -232,7 +251,7 @@ void profile3(char key){
 void profile4(char key){
   switch(key){
     case '1':
-      //Play/Pause
+      //Play-Pause
       Keyboard.write((char) 32);
       break;
     case '2':
@@ -241,18 +260,18 @@ void profile4(char key){
     case '3':
       //Stop
       break;
-    case '4':
+    case '5':
       //Record
       Keyboard.press('r');
       break;
-    case '5':
+    case '6':
       //Quantize
-      Keyboard.press(KEY_LEFT_GUI);
       Keyboard.press('q');
       break;
-    case '6':
-      break;
     case '7':
+      //Save
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('s');
       break;
     default:
       break;
@@ -267,8 +286,6 @@ void profile5(char key){
     case '2':
       break;
     case '3':
-      break;
-    case '4':
       break;
     case '5':
       break;
@@ -290,8 +307,6 @@ void profile6(char key){
       break;
     case '3':
       break;
-    case '4':
-      break;
     case '5':
       break;
     case '6':
@@ -311,8 +326,6 @@ void profile7(char key){
     case '2':
       break;
     case '3':
-      break;
-    case '4':
       break;
     case '5':
       break;
@@ -334,8 +347,6 @@ void profile8(char key){
       break;
     case '3':
       break;
-    case '4':
-      break;
     case '5':
       break;
     case '6':
@@ -355,8 +366,6 @@ void profile9(char key){
     case '2':
       break;
     case '3':
-      break;
-    case '4':
       break;
     case '5':
       break;
