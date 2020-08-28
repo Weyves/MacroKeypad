@@ -2,7 +2,7 @@
 
 ## Profiles
 
-### Profile 1. Visual Studio
+### Profile 0. Visual Studio
 ##### Color: Red
 
 ###### Keys
@@ -15,7 +15,7 @@
 * 6
 * 7
 
-### Profile 2. Eclipse
+### Profile 1. Eclipse
 ##### Color: Green
 
 ###### Keys
@@ -28,7 +28,7 @@
 * 6
 * 7
 
-### Profile 3. Visual Studio Code
+### Profile 2. Visual Studio Code
 ##### Color: Blue
 
 ###### Keys
@@ -41,7 +41,7 @@
 * 6
 * 7
 
-### Profile 4. Spotify
+### Profile 3. Spotify
 ##### Color: White
 
 ###### Keys
@@ -54,7 +54,7 @@
 * 6
 * 7
 
-### Profile 5. Logic Pro X / GarageBand
+### Profile 4. Logic Pro X / GarageBand
 ##### Color: Cyan
 
 ###### Keys
@@ -67,7 +67,7 @@
 * 6
 * 7
 
-### Profile 6. 
+### Profile 5. 
 ##### Color: Orange
 
 ###### Keys
@@ -80,7 +80,7 @@
 * 6
 * 7
 
-### Profile 7. 
+### Profile 6. 
 ##### Color: Purple
 
 ###### Keys
@@ -93,7 +93,7 @@
 * 6
 * 7
 
-### Profile 8. 
+### Profile 7. 
 ##### Color: Pistachio
 
 ###### Keys
@@ -106,7 +106,7 @@
 * 6
 * 7
 
-### Profile 9. 
+### Profile 8. 
 ##### Color: Light Pink
 
 ###### Keys
@@ -119,7 +119,7 @@
 * 6
 * 7
 
-### Profile 10. 
+### Profile 9. 
 ##### Color: Shrek
 
 ###### Keys

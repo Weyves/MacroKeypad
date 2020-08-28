@@ -1,3 +1,5 @@
+// Version 0.3
+
 #include <Adafruit_NeoPixel.h>
 #include <Keypad.h>
 #include <Keyboard.h>
@@ -10,14 +12,14 @@ char keys[ROWS][COLS] = {
   {'5','6','7','8'},
 };
 
-char profiles[10] = {'0','1','2','3','4','5','6','7','8','9'};
-char selectedProfile;
+//char profiles[10] = {'0','1','2','3','4','5','6','7','8','9'};
+int selectedProfile;
 
 byte rowPins[ROWS] = {16,10};
 byte colPins[COLS] = {9,8,7,6};
 
 const byte  PIXEL_PIN = 2;
-const byte PIXEL_COUNT = 12;
+const byte PIXEL_COUNT = 16;
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
@@ -33,40 +35,51 @@ void setup() {
 void loop() {
   char key = keypad.getKey();
   if(key){
-    Serial.println('Key pressed: ' + key);
-    Serial.println('Current profile: ' + selectedProfile);
-    switch(key){
-      case '1':
-        Keyboard.press(KEY_F11);
+    Serial.println("Key pressed: ");
+    Serial.println(key);
+    Serial.println("Current profile: ");
+    Serial.println(selectedProfile);
+    if(key == '8'){
+      Serial.println("Changing profile...");
+      if (selectedProfile == 9){
+        selectedProfile = 0;
+      } else {
+        selectedProfile = selectedProfile + 1;
+      }
+      changeProfile();
+    }
+    switch(selectedProfile){
+      case 0:
+        profile0(key);
         break;
-      case '2':
-        Keyboard.press(KEY_F10);
+      case 1:
+        profile1(key);
         break;
-      case '3':
-        Keyboard.press(KEY_LEFT_SHIFT);
-        Keyboard.press(KEY_F11);
+      case 2:
+        profile2(key);
         break;
-      case '4':
-        Keyboard.press(KEY_LEFT_SHIFT);
-        Keyboard.press(KEY_F5);
+      case 3:
+        profile3(key);
         break;
-      case '5':
-        Keyboard.press(KEY_F8);
+      case 4:
+        profile4(key);
         break;
-      case '6':
-        Keyboard.press(KEY_LEFT_CTRL);
-        Keyboard.press(KEY_F2);
+      case 5:
+        profile5(key);
         break;
-      case '7':
-        Keyboard.press(KEY_F5);
+      case 6:
+        profile6(key);
         break;
-      case '8':
-        if(selectedProfile = 9){
-          selectedProfile = 0;
-        } else {
-          selectedProfile++;
-        }
-        changeProfile();
+      case 7:
+        profile7(key);
+        break;
+      case 8:
+        profile8(key);
+        break;
+      case 9:
+        profile9(key);
+        break;
+      default:
         break;
     }
     delay(100);
@@ -124,5 +137,234 @@ void colorWipe(uint32_t c, uint8_t wait) {
     strip.setPixelColor(i, c);
     strip.show();
     delay(wait);
+  }
+}
+
+//Visual Studio
+void profile0(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Eclipse
+void profile1(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Visual Studio Code
+void profile2(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Spotify
+void profile3(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Logic Pro X / GarageBand
+void profile4(char key){
+  switch(key){
+    case '1':
+      //Play/Pause
+      Keyboard.write((char) 32);
+      break;
+    case '2':
+      //Loop
+      break;
+    case '3':
+      //Stop
+      break;
+    case '4':
+      //Record
+      Keyboard.press('r');
+      break;
+    case '5':
+      //Quantize
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('q');
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Program
+void profile5(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Program
+void profile6(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Program
+void profile7(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Program
+void profile8(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
+  }
+}
+
+//Program
+void profile9(char key){
+  switch(key){
+    case '1':
+      break;
+    case '2':
+      break;
+    case '3':
+      break;
+    case '4':
+      break;
+    case '5':
+      break;
+    case '6':
+      break;
+    case '7':
+      break;
+    default:
+      break;
   }
 }
