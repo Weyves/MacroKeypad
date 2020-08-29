@@ -99,44 +99,44 @@ void changeProfile(){
   Serial.println(selectedProfile);
   switch(selectedProfile){
     case 0:
-      //Purple//
+      //Purple
       colorWipe(strip.Color(153, 51, 255), 50);
       break;
     case 1:
-      //Orange//
+      //Orange
       colorWipe(strip.Color(255, 128, 0), 50);
       break;
     case 2:
-      //Blue//
+      //Blue
       colorWipe(strip.Color(0, 0, 255), 50);
       break;
     case 3:
-      //Green//
+      //Green
       colorWipe(strip.Color(0, 255, 0), 50);
       break;
     case 4:
-      //White//
+      //White
       colorWipe(strip.Color(127, 127, 127), 50);
       break;
     case 5:
-      //Cyan//
+      //Cyan
       colorWipe(strip.Color(102, 255, 255), 50);
       break;
     case 6:
-      //Red//
+      //Red
       colorWipe(strip.Color(255, 0, 0), 50);
       break;
     case 7:
-      //Pistachio//
+      //Pistachio
       colorWipe(strip.Color(102, 255, 178), 50);
       break;
     case 8:
-      //Light pink//
+      //Light pink
       colorWipe(strip.Color(255, 153, 255), 50);
       break;
     case 9:
-      //Shrek//
-      colorWipe(strip.Color(153, 255, 153), 50);
+      //Windows
+      colorWipe(strip.Color(0, 128, 255), 50);
       break;
   }
 }
@@ -278,7 +278,7 @@ void profile4(char key){
   }
 }
 
-//Program
+//OBS
 void profile5(char key){
   switch(key){
     case '1':
@@ -358,20 +358,46 @@ void profile8(char key){
   }
 }
 
-//Program
+//Windows
 void profile9(char key){
   switch(key){
     case '1':
+      //Cmd
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('r');
+      delay(100);
+      Keyboard.write("cmd");
+      Keyboard.press(KEY_RETURN);
       break;
     case '2':
+      //Services
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('r');
+      delay(100);
+      Keyboard.write("services.msc");
+      Keyboard.press(KEY_RETURN);
       break;
     case '3':
+      //File manager
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('e');
       break;
     case '5':
+      //Lock
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press('l');
       break;
     case '6':
+      //Unlock work pc
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press(KEY_DELETE);
       break;
     case '7':
+      //Crop screenshot
+      Keyboard.press(KEY_LEFT_GUI);
+      Keyboard.press(KEY_LEFT_SHIFT);
+      Keyboard.press('r');
       break;
     default:
       break;
